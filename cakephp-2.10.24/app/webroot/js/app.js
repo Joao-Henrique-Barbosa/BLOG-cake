@@ -19,7 +19,7 @@ function editar_post(id){
         content: 'url:http://localhost/cake_2_0/cakephp-2.10.24/posts/edit/'+id,
         buttons:{
             ok: function(){
-                var form = $('#Post');
+                var form = $('#PostEditForm');
                 $.ajax({
                     type: "POST",
                     url: "http://localhost/cake_2_0/cakephp-2.10.24/posts/edit/"+id,
@@ -47,7 +47,7 @@ function add_post(){
         content:   'url:http://localhost/cake_2_0/cakephp-2.10.24/posts/add',
         buttons:{
             ok: function(){
-                var form = $('#post');
+                var form = $('#PostAddForm');
                 $.ajax({
                     type: "POST",
                     url: "http://localhost/cake_2_0/cakephp-2.10.24/posts/add",
@@ -79,16 +79,21 @@ function view_post(id){
 function deletar(id){
     $.confirm({
         title: 'Title',
+        content: 'Realmente deseja deletar o post '+id+'?',
         buttons:{
             ok: function(){
+                var form = $('#PostEditForm');
                 $.ajax({
                     url: "http://localhost/cake_2_0/cakephp-2.10.24/posts/delete/"+id,
-                    type: "DELETE",
+                    type: "POST",
                     success: function (data) {
                         buscar_post();
                     },
                     async: true
                 });
+            },
+            cancel: function(){
+                    buscar_post()
             },
         },
         columnClass: 'medium',

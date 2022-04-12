@@ -1,6 +1,5 @@
 <h1>Blog posts</h1>
-<p><?php echo $this->Html->link("Add Post", array('action' => 'add')); ?></p>
-<a href="#" onclick='add_post();'>Adc post</a>
+<a href="#" onclick='add_post();'>Add post</a>
 <table>
     <tr>
         <th>Id</th>
@@ -16,17 +15,10 @@ as informações dos posts -->
     <tr>
         <td><?php echo $post['Post']['id']; ?></td>
         <td>
-            <?php echo $this->Html->link($post['Post']['title'], array('action' => 'view', $post['Post']['id']));?>
-            <a href="#" onclick='view_post(<?=$post['Post']['id'];?>);'>this post</a>
+            <a href="#" onclick='view_post(<?=$post['Post']['id'];?>);'><?=$post['Post']['title']?></a>
         </td>
         <td>
-        <a href="#" onclick='deletar(<?=$post['Post']['id'];?>);'>Deletar</a>
-            <?php echo $this->Form->postLink(
-                'Delete',
-                array('action' => 'delete', $post['Post']['id']),
-                array('confirm' => 'Are you sure?')
-                
-            )?>
+        <a href="#" onclick='deletar(<?=$post['Post']['id'];?>);'>Delete</a>
             <a href="#" onclick='editar_post(<?=$post['Post']['id'];?>);'>Edit</a>
         </td>
         <td><?php echo $post['Post']['created']; ?></td>
