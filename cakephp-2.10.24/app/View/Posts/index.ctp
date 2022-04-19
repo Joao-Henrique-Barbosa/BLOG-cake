@@ -15,11 +15,11 @@ as informações dos posts -->
     <tr>
         <td><?php echo $post['Post']['id']; ?></td>
         <td>
-            <a href="#" onclick='view_post(<?=$post['Post']['id'];?>);'><?=$post['Post']['title']?></a>
+            <a href="#" onclick="view_post(<?=$post['Post']['id'];?>);"><?=$post['Post']['title']?></a>
         </td>
         <td>
-        <a href="#" onclick='deletar(<?=$post['Post']['id'];?>);'>Delete</a>
-            <a href="#" onclick='editar_post(<?=$post['Post']['id'];?>);'>Edit</a>
+            <a href="#" onclick="deletar(<?=$post['Post']['id'];?>);">Delete</a>
+            <a href="#" onclick="editar_post(<?=$post['Post']['id'];?>);">Edit</a>
         </td>
         <td><?php echo $post['Post']['created']; ?></td>
     </tr>

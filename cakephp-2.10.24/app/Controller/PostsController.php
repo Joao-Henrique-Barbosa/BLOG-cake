@@ -9,6 +9,7 @@ class PostsController extends AppController {
     }
 
     public function view($id) {
+        $this->layout = 'ajax';
         $this->set('post', $this->Post->findById($id));
     }
 
@@ -44,3 +45,4 @@ class PostsController extends AppController {
         }
     }
 }
+    
